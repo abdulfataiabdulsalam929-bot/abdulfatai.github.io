@@ -1,0 +1,3048 @@
+/* =========================================
+   AFT PORTFOLIO
+   PART 1 — FOUNDATION + NAVBAR + HERO
+========================================= */
+
+/* ---------- RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* ---------- GLOBAL ---------- */
+
+:root {
+    --bg: #080808;
+    --surface: #101010;
+    --surface-light: #151515;
+    --text: #f5f5f5;
+    --muted: #999;
+    --gold: #d6b36a;
+    --gold-light: #f0d99b;
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+::selection {
+    background: var(--gold);
+    color: #000;
+}
+
+
+/* ---------- NAVIGATION ---------- */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(8, 8, 8, 0.78);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid var(--border);
+
+    z-index: 1000;
+}
+
+
+/* LOGO */
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+
+/* NAV LINKS */
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    position: relative;
+
+    color: #aaa;
+
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    transition: 0.3s ease;
+}
+
+.navbar nav a:hover {
+    color: #fff;
+}
+
+.navbar nav a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--gold);
+
+    transition: 0.3s ease;
+}
+
+.navbar nav a:hover::after {
+    width: 100%;
+}
+
+
+/* ---------- HERO ---------- */
+
+.hero {
+    min-height: 100vh;
+
+    padding: 150px 7% 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 60px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* subtle background glow */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: -180px;
+    top: 100px;
+
+    background: radial-gradient(
+        circle,
+        rgba(214, 179, 106, 0.12),
+        transparent 70%
+    );
+
+    pointer-events: none;
+}
+
+
+/* HERO CONTENT */
+
+.hero-content {
+    max-width: 760px;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* EYEBROW */
+
+.eyebrow {
+    margin-bottom: 25px;
+
+    color: var(--gold);
+
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+}
+
+
+/* HERO TITLE */
+
+.hero h1 {
+    font-size: clamp(3rem, 7vw, 7rem);
+
+    line-height: 0.98;
+
+    font-weight: 700;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 30px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+
+/* HERO DESCRIPTION */
+
+.hero-text {
+    max-width: 620px;
+
+    color: var(--muted);
+
+    font-size: 1.05rem;
+
+    margin-bottom: 38px;
+}
+
+
+/* ---------- BUTTONS ---------- */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 50px;
+
+    padding: 0 25px;
+
+    border: 1px solid var(--border);
+
+    font-size: 0.78rem;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    transition: 0.3s ease;
+}
+
+.btn.primary {
+    background: var(--gold);
+    color: #080808;
+    border-color: var(--gold);
+}
+
+.btn.primary:hover {
+    background: var(--gold-light);
+
+    transform: translateY(-3px);
+}
+
+.btn.secondary {
+    color: #fff;
+}
+
+.btn.secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+
+/* ---------- HERO ORBIT ---------- */
+
+.hero-orbit {
+    width: 360px;
+    height: 360px;
+
+    flex-shrink: 0;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* central AFT */
+
+.core {
+    width: 130px;
+    height: 130px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(214, 179, 106, 0.7);
+
+    border-radius: 50%;
+
+    color: var(--gold);
+
+    font-size: 1.5rem;
+    font-weight: 800;
+
+    letter-spacing: 5px;
+
+    box-shadow:
+        0 0 40px rgba(214, 179, 106, 0.08),
+        inset 0 0 30px rgba(214, 179, 106, 0.04);
+}
+
+
+/* orbit circles */
+
+.orbit {
+    position: absolute;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 50%;
+}
+
+.orbit-one {
+    width: 230px;
+    height: 230px;
+
+    transform: rotate(25deg);
+
+    border-top-color: var(--gold);
+}
+
+.orbit-two {
+    width: 330px;
+    height: 330px;
+
+    transform: rotate(-35deg);
+
+    border-bottom-color: rgba(214, 179, 106, 0.7);
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 850px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .navbar nav {
+        gap: 14px;
+    }
+
+    .navbar nav a {
+        font-size: 0.65rem;
+        letter-spacing: 0.8px;
+    }
+
+    .hero {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 130px 5% 70px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .hero-orbit {
+        width: 280px;
+        height: 280px;
+
+        align-self: center;
+    }
+
+    .orbit-one {
+        width: 190px;
+        height: 190px;
+    }
+
+    .orbit-two {
+        width: 270px;
+        height: 270px;
+    }
+}
+/* =========================================
+   PART 2 — SECTIONS + SKILLS + PROJECTS
+========================================= */
+
+
+/* ---------- GENERAL SECTIONS ---------- */
+
+.section {
+    padding: 130px 7%;
+    position: relative;
+}
+
+
+/* ---------- SECTION HEADING ---------- */
+
+.section-heading {
+    max-width: 850px;
+    margin-bottom: 60px;
+}
+
+.section-heading > p {
+    color: var(--gold);
+
+    font-size: 0.7rem;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+}
+
+.section-heading h2 span {
+    color: var(--gold);
+}
+
+
+/* ---------- JOURNEY ---------- */
+
+.journey-card {
+    position: relative;
+
+    max-width: 950px;
+
+    padding: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.015)
+        );
+
+    border: 1px solid var(--border);
+
+    overflow: hidden;
+}
+
+
+/* decorative line */
+
+.journey-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 3px;
+    height: 100%;
+
+    background: var(--gold);
+}
+
+
+.journey-card p {
+    color: #aaa;
+
+    font-size: 1.15rem;
+
+    line-height: 1.9;
+
+    max-width: 800px;
+}
+
+
+/* ---------- SKILLS GRID ---------- */
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+
+/* ---------- SKILL CARD ---------- */
+
+.skill-card {
+    min-height: 260px;
+
+    padding: 30px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+}
+
+
+/* number */
+
+.skill-card > span {
+    position: absolute;
+
+    top: 25px;
+    right: 25px;
+
+    color: #555;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 2px;
+}
+
+
+/* hover glow */
+
+.skill-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    top: -80px;
+    right: -80px;
+
+    background: radial-gradient(
+        circle,
+        rgba(214,179,106,0.18),
+        transparent 70%
+    );
+
+    transition: 0.4s ease;
+}
+
+
+.skill-card:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(214,179,106,0.45);
+
+    background: var(--surface-light);
+}
+
+
+.skill-card:hover::before {
+    transform: scale(1.5);
+}
+
+
+.skill-card h3 {
+    font-size: 1.2rem;
+
+    margin-bottom: 10px;
+}
+
+
+.skill-card p {
+    color: #777;
+
+    font-size: 0.85rem;
+}
+
+
+/* ---------- PROJECT GRID ---------- */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+
+/* ---------- PROJECT CARD ---------- */
+
+.project-card {
+    min-height: 360px;
+
+    padding: 40px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111,
+            #090909
+        );
+
+    border: 1px solid var(--border);
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+.project-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 40%,
+            rgba(214,179,106,0.07)
+        );
+
+    opacity: 0;
+
+    transition: 0.4s ease;
+}
+
+
+.project-card:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(214,179,106,0.4);
+}
+
+
+.project-card:hover::after {
+    opacity: 1;
+}
+
+
+/* project category */
+
+.project-card small {
+    color: var(--gold);
+
+    font-size: 0.65rem;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+
+/* project title */
+
+.project-card h3 {
+    position: relative;
+    z-index: 2;
+
+    font-size: 2rem;
+
+    margin-bottom: 15px;
+
+    letter-spacing: -1px;
+}
+
+
+/* project description */
+
+.project-card p {
+    position: relative;
+    z-index: 2;
+
+    color: #888;
+
+    max-width: 500px;
+
+    margin-bottom: 25px;
+}
+
+
+/* project link */
+
+.project-card a {
+    position: relative;
+    z-index: 2;
+
+    width: fit-content;
+
+    color: #fff;
+
+    font-size: 0.75rem;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    border-bottom: 1px solid #555;
+
+    padding-bottom: 5px;
+
+    transition: 0.3s ease;
+}
+
+
+.project-card a:hover {
+    color: var(--gold);
+
+    border-color: var(--gold);
+}
+
+
+/* ---------- RESPONSIVE TABLET ---------- */
+
+@media (max-width: 1000px) {
+
+    .skills-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* ---------- RESPONSIVE MOBILE ---------- */
+
+@media (max-width: 650px) {
+
+    .section {
+        padding: 90px 5%;
+    }
+
+
+    .section-heading {
+        margin-bottom: 40px;
+    }
+
+
+    .journey-card {
+        padding: 30px;
+    }
+
+
+    .journey-card p {
+        font-size: 1rem;
+    }
+
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .skill-card {
+        min-height: 220px;
+    }
+
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .project-card {
+        min-height: 320px;
+
+        padding: 30px;
+    }
+
+
+    .project-card h3 {
+        font-size: 1.6rem;
+    }
+
+}
+/* =========================================
+   PART 3 — FAITH + CONTACT + FOOTER
+========================================= */
+
+
+/* ---------- FAITH SECTION ---------- */
+
+.faith-section {
+    min-height: 85vh;
+
+    padding: 150px 7%;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(214, 179, 106, 0.08),
+            transparent 55%
+        );
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* large background symbol */
+
+.faith-section::before {
+    content: "✦";
+
+    position: absolute;
+
+    font-size: 30rem;
+
+    line-height: 1;
+
+    color: rgba(255,255,255,0.012);
+
+    pointer-events: none;
+}
+
+
+/* small symbol */
+
+.faith-symbol {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 30px;
+
+    border: 1px solid
+        rgba(214,179,106,0.4);
+
+    border-radius: 50%;
+
+    color: var(--gold);
+
+    font-size: 1.3rem;
+}
+
+
+/* label */
+
+.faith-label {
+    color: var(--gold);
+
+    font-size: 0.7rem;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 35px;
+}
+
+
+/* heading */
+
+.faith-section h2 {
+    position: relative;
+    z-index: 2;
+
+    max-width: 900px;
+
+    font-size: clamp(
+        2.8rem,
+        6vw,
+        6rem
+    );
+
+    line-height: 1.05;
+
+    letter-spacing: -3px;
+}
+
+
+.faith-section h2 span {
+    color: var(--gold);
+}
+
+
+/* description */
+
+.faith-text {
+    position: relative;
+    z-index: 2;
+
+    max-width: 650px;
+
+    margin-top: 35px;
+
+    color: #888;
+
+    font-size: 1.05rem;
+
+    line-height: 1.9;
+}
+
+
+/* ---------- VALUES ---------- */
+
+.values {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 40px;
+}
+
+
+.values span {
+    padding: 9px 16px;
+
+    border: 1px solid var(--border);
+
+    color: #999;
+
+    font-size: 0.72rem;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s ease;
+}
+
+
+.values span:hover {
+    color: var(--gold);
+
+    border-color:
+        rgba(214,179,106,0.45);
+}
+
+
+/* ---------- CONTACT ---------- */
+
+.contact {
+    text-align: center;
+
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+
+.contact > p {
+    color: var(--gold);
+
+    font-size: 0.7rem;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+}
+
+
+.contact h2 {
+    max-width: 900px;
+
+    margin: 0 auto 40px;
+
+    font-size: clamp(
+        3rem,
+        7vw,
+        7rem
+    );
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+}
+
+
+.contact h2 span {
+    color: var(--gold);
+}
+
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    min-height: 100px;
+
+    padding: 30px 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-top: 1px solid var(--border);
+
+    color: #666;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 1px;
+}
+
+
+footer p:last-child {
+    color: #888;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 650px) {
+
+    .faith-section {
+        min-height: 75vh;
+
+        padding: 100px 5%;
+    }
+
+
+    .faith-section::before {
+        font-size: 18rem;
+    }
+
+
+    .faith-section h2 {
+        letter-spacing: -2px;
+    }
+
+
+    .faith-text {
+        font-size: 0.95rem;
+    }
+
+
+    .contact {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+
+    .contact h2 {
+        letter-spacing: -2px;
+    }
+
+
+    footer {
+        padding: 30px 5%;
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+}
+/* =========================================
+   PART 5 — LEARNING GROUPS
+========================================= */
+
+.learning-group {
+    margin-bottom: 100px;
+}
+
+.learning-group:last-child {
+    margin-bottom: 0;
+}
+
+
+/* GROUP TITLE */
+
+.group-title {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    margin-bottom: 30px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.group-title span {
+    color: var(--gold);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 2px;
+}
+
+.group-title h3 {
+    font-size: 1.1rem;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+/* CARD GRID */
+
+.learning-group .skills-grid {
+    margin-top: 0;
+}
+
+
+/* SPECIAL HOVER */
+
+.learning-group .skill-card {
+    cursor: default;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .learning-group {
+        margin-bottom: 70px;
+    }
+
+    .group-title {
+        margin-bottom: 20px;
+    }
+
+}
+/* =========================================
+   PART 6 — SCROLL REVEAL
+========================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.reveal.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+/* =========================================
+   PART 7 — ACTIVE NAVIGATION
+========================================= */
+
+.navbar nav a.active {
+    color: var(--gold);
+}
+
+.navbar nav a.active::after {
+    width: 100%;
+}
+/* =========================================
+   AFTTECHWEAR PROJECT PAGE
+========================================= */
+
+
+/* ---------- PROJECT PAGE HERO ---------- */
+
+.project-page {
+    min-height: 85vh;
+
+    padding: 170px 7% 100px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* background glow */
+
+.project-page::before {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    right: -200px;
+    top: 100px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(214, 179, 106, 0.12),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* project label */
+
+.project-label {
+    position: relative;
+    z-index: 2;
+
+    color: var(--gold);
+
+    font-size: 0.7rem;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+}
+
+
+/* project title */
+
+.project-page h1 {
+    position: relative;
+    z-index: 2;
+
+    font-size: clamp(
+        4rem,
+        10vw,
+        10rem
+    );
+
+    line-height: 0.9;
+
+    letter-spacing: -6px;
+
+    margin-bottom: 35px;
+}
+
+
+.project-page h1 span {
+    color: var(--gold);
+}
+
+
+/* introduction */
+
+.project-intro {
+    position: relative;
+    z-index: 2;
+
+    max-width: 700px;
+
+    color: #999;
+
+    font-size: 1.15rem;
+
+    line-height: 1.8;
+}
+
+
+/* ---------- PROJECT META ---------- */
+
+.project-meta {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    max-width: 900px;
+
+    margin-top: 70px;
+}
+
+
+.project-meta > div {
+    padding: 25px;
+
+    border-top: 1px solid var(--border);
+
+    background: rgba(255,255,255,0.02);
+}
+
+
+.project-meta small {
+    display: block;
+
+    color: #666;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+
+.project-meta p {
+    color: #ddd;
+
+    font-size: 0.85rem;
+}
+
+
+/* ---------- PROJECT CONTENT ---------- */
+
+.project-content {
+    max-width: 1000px;
+
+    padding: 130px 7%;
+
+    margin: 0 auto;
+}
+
+
+.project-number {
+    color: var(--gold);
+
+    font-size: 0.7rem;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+}
+
+
+.project-content h2 {
+    font-size: clamp(
+        2.5rem,
+        5vw,
+        5rem
+    );
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 35px;
+}
+
+
+.project-content h2 span {
+    color: var(--gold);
+}
+
+
+.project-content > p:not(.project-number) {
+    max-width: 750px;
+
+    color: #888;
+
+    font-size: 1.05rem;
+
+    line-height: 1.9;
+
+    margin-bottom: 20px;
+}
+
+
+/* ---------- PROJECT LIST ---------- */
+
+.project-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 35px;
+}
+
+
+.project-list span {
+    padding: 12px 18px;
+
+    border: 1px solid var(--border);
+
+    color: #aaa;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s ease;
+}
+
+
+.project-list span:hover {
+    color: var(--gold);
+
+    border-color:
+        rgba(214,179,106,0.5);
+
+    transform: translateY(-3px);
+}
+
+
+/* ---------- BACK BUTTON ---------- */
+
+.project-back {
+    padding: 40px 7% 120px;
+
+    text-align: center;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 700px) {
+
+    .project-page {
+        min-height: auto;
+
+        padding: 140px 5% 80px;
+    }
+
+
+    .project-page h1 {
+        font-size: clamp(
+            3.5rem,
+            17vw,
+            6rem
+        );
+
+        letter-spacing: -4px;
+    }
+
+
+    .project-intro {
+        font-size: 1rem;
+    }
+
+
+    .project-meta {
+        grid-template-columns: 1fr;
+
+        margin-top: 50px;
+    }
+
+
+    .project-content {
+        padding: 90px 5%;
+    }
+
+
+    .project-content h2 {
+        letter-spacing: -2px;
+    }
+
+
+    .project-back {
+        padding: 20px 5% 90px;
+    }
+
+}
+/* =========================================
+   AFTTECHWEAR LOOKBOOK
+========================================= */
+
+.lookbook {
+    padding: 120px 8%;
+    border-top: 1px solid var(--border);
+}
+
+.lookbook-heading {
+    max-width: 700px;
+    margin-bottom: 60px;
+}
+
+.lookbook-heading > p:first-child {
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.lookbook-heading h2 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.lookbook-heading h2 span {
+    color: var(--gold);
+}
+
+.lookbook-intro {
+    color: var(--muted);
+    max-width: 550px;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+
+/* LOOKBOOK GRID */
+
+.lookbook-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+
+/* LOOKBOOK CARD */
+
+.lookbook-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: transform 0.5s ease, border-color 0.5s ease;
+}
+
+.lookbook-item:hover {
+    transform: translateY(-8px);
+    border-color: rgba(214, 179, 106, 0.5);
+}
+
+
+/* IMAGE PLACEHOLDER */
+
+.image-placeholder {
+    height: 420px;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(214, 179, 106, 0.12),
+            transparent 55%
+        ),
+        linear-gradient(
+            145deg,
+            #151515,
+            #080808
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Decorative border */
+
+.image-placeholder::before {
+    content: "";
+    position: absolute;
+    inset: 20px;
+    border: 1px solid rgba(214, 179, 106, 0.15);
+}
+
+
+/* AFT text */
+
+.image-placeholder span {
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: 8px;
+    color: rgba(214, 179, 106, 0.35);
+}
+
+
+/* LOOKBOOK INFO */
+
+.lookbook-info {
+    padding: 25px 28px 30px;
+}
+
+.lookbook-info h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.lookbook-info p {
+    color: var(--muted);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   MOBILE LOOKBOOK
+========================================= */
+
+@media (max-width: 768px) {
+
+    .lookbook {
+        padding: 80px 6%;
+    }
+
+    .lookbook-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .image-placeholder {
+        height: 360px;
+    }
+
+    .lookbook-heading h2 {
+        font-size: 3rem;
+    }
+
+}
+/* =========================================
+   LOOKBOOK COLLECTION NUMBERS
+========================================= */
+
+.lookbook-info small {
+    display: block;
+    color: var(--gold);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    opacity: 0.8;
+}
+/* =========================================
+   AFTTECHWEAR — BRAND STORY
+========================================= */
+
+.brand-story {
+    padding: 140px 8%;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+
+    display: grid;
+    grid-template-columns: 0.7fr 1.8fr;
+    gap: 80px;
+
+    background:
+        radial-gradient(
+            circle at 85% 50%,
+            rgba(214, 179, 106, 0.08),
+            transparent 35%
+        );
+}
+
+
+/* LABEL */
+
+.brand-story-label {
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding-top: 10px;
+}
+
+
+/* CONTENT */
+
+.brand-story-content {
+    max-width: 850px;
+}
+
+.brand-story-content h2 {
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    line-height: 1;
+    font-weight: 500;
+    margin-bottom: 45px;
+}
+
+.brand-story-content h2 span {
+    display: block;
+    color: var(--gold);
+}
+
+.brand-story-content p {
+    max-width: 700px;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.9;
+    margin-bottom: 22px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .brand-story {
+        padding: 90px 6%;
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .brand-story-content h2 {
+        font-size: 3rem;
+        margin-bottom: 30px;
+    }
+
+}
+/* =========================================
+   AFTTECHWEAR — MANIFESTO
+========================================= */
+
+.manifesto {
+    padding: 150px 8%;
+    display: grid;
+    grid-template-columns: 0.7fr 1.8fr;
+    gap: 80px;
+    background: #050505;
+}
+
+.manifesto-label {
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding-top: 10px;
+}
+
+.manifesto-content {
+    max-width: 900px;
+}
+
+.manifesto-main {
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    line-height: 1.05;
+    font-weight: 500;
+    margin-bottom: 70px;
+}
+
+.manifesto-main span {
+    display: block;
+    color: var(--gold);
+}
+
+.manifesto-lines {
+    border-top: 1px solid var(--border);
+}
+
+.manifesto-lines p {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.manifesto-lines p:hover {
+    color: var(--text);
+    padding-left: 12px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .manifesto {
+        padding: 90px 6%;
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .manifesto-main {
+        font-size: 3rem;
+        margin-bottom: 50px;
+    }
+
+}
+/* =========================================
+   AFTTECHWEAR — FINAL POLISH
+========================================= */
+
+.project-page {
+    overflow: hidden;
+}
+
+
+/* Smooth section spacing */
+
+.project-content {
+    position: relative;
+}
+
+
+/* Gold accent line */
+
+.project-content::before {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 35px;
+    opacity: 0.7;
+}
+
+
+/* Better project lists */
+
+.project-list li {
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.project-list li:hover {
+    color: var(--gold-light);
+    transform: translateX(6px);
+}
+
+
+/* Better back button */
+
+.project-back {
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.project-back:hover {
+    background: var(--gold);
+    color: #080808;
+    transform: translateY(-3px);
+}
+
+
+/* Mobile polish */
+
+@media (max-width: 768px) {
+
+    .project-content::before {
+        margin-bottom: 25px;
+    }
+
+}
+/* =========================================
+   AFTTECHWEAR — PROJECT CTA
+========================================= */
+
+.project-cta {
+    padding: 140px 8%;
+    text-align: center;
+    border-top: 1px solid var(--border);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(214, 179, 106, 0.10),
+            transparent 55%
+        );
+}
+
+.project-cta-label {
+    color: var(--gold);
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.project-cta h2 {
+    max-width: 900px;
+    margin: 0 auto 30px;
+
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 0.98;
+    font-weight: 500;
+}
+
+.project-cta h2 span {
+    display: block;
+    color: var(--gold);
+}
+
+.project-cta-text {
+    max-width: 600px;
+    margin: 0 auto 45px;
+
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+
+/* CTA BUTTONS */
+
+.project-cta-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px 28px;
+
+    border: 1px solid var(--gold);
+    color: var(--gold);
+
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background: var(--gold);
+    color: #080808;
+    transform: translateY(-3px);
+}
+
+.cta-button.secondary {
+    border-color: var(--border);
+    color: var(--text);
+}
+
+.cta-button.secondary:hover {
+    border-color: var(--gold);
+    color: #080808;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .project-cta {
+        padding: 90px 6%;
+    }
+
+    .project-cta h2 {
+        font-size: 3rem;
+    }
+
+    .project-cta-buttons {
+        flex-direction: column;
+    }
+
+    .cta-button {
+        width: 100%;
+        max-width: 280px;
+    }
+
+}
+/* =========================================
+   HERO IDENTITY LINE
+========================================= */
+
+.hero-identity {
+    margin-top: 22px;
+    color: var(--gold);
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    line-height: 1.8;
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+
+    .hero-identity {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+
+}
+/* =========================================
+   HERO SECONDARY BUTTON
+========================================= */
+
+.btn.secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.btn.secondary:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+    transform: translateY(-3px);
+}
+/* =========================================
+   JOURNEY — VISUAL POLISH
+========================================= */
+
+#journey {
+    position: relative;
+}
+
+#journey .journey-card {
+    position: relative;
+    overflow: hidden;
+}
+
+#journey .journey-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gold);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s ease;
+}
+
+#journey .journey-card:hover::before {
+    transform: scaleY(1);
+}
+
+#journey .journey-card:hover {
+    transform: translateY(-6px);
+}
+
+#journey .journey-card h3 {
+    transition: color 0.3s ease;
+}
+
+#journey .journey-card:hover h3 {
+    color: var(--gold);
+}
+/* =========================================
+   SKILLS — VISUAL POLISH
+========================================= */
+
+#skills {
+    position: relative;
+}
+
+#skills .section-heading {
+    position: relative;
+}
+
+#skills .learning-group {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+#skills .learning-group::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--gold);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s ease;
+}
+
+#skills .learning-group:hover {
+    transform: translateY(-5px);
+    border-color: rgba(214, 179, 106, 0.35);
+}
+
+#skills .learning-group:hover::before {
+    transform: scaleY(1);
+}
+
+#skills .learning-group h3 {
+    transition: color 0.3s ease;
+}
+
+#skills .learning-group:hover h3 {
+    color: var(--gold);
+}
+
+#skills .learning-item {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#skills .learning-item:hover {
+    color: var(--gold-light);
+    transform: translateX(5px);
+}
+/* =========================================
+   PROJECTS — PREMIUM POLISH
+========================================= */
+
+#projects {
+    position: relative;
+}
+
+#projects .project-card {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.45s ease,
+        border-color 0.45s ease,
+        background 0.45s ease;
+}
+
+#projects .project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+#projects .project-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(214, 179, 106, 0.4);
+}
+
+#projects .project-card:hover::before {
+    transform: scaleX(1);
+}
+
+#projects .project-card h3 {
+    transition: color 0.3s ease;
+}
+
+#projects .project-card:hover h3 {
+    color: var(--gold);
+}
+
+#projects .project-card a {
+    transition:
+        color 0.3s ease,
+        letter-spacing 0.3s ease;
+}
+
+#projects .project-card:hover a {
+    color: var(--gold-light);
+    letter-spacing: 1px;
+}
+/* =========================================
+   FAITH & PURPOSE — VISUAL POLISH
+========================================= */
+
+#faith {
+    position: relative;
+    overflow: hidden;
+}
+
+#faith .faith-content {
+    position: relative;
+}
+
+#faith .faith-content::before {
+    content: "﷽";
+    display: block;
+    color: var(--gold);
+    font-size: 2rem;
+    margin-bottom: 25px;
+    opacity: 0.75;
+}
+
+#faith .faith-content h2 {
+    transition: color 0.4s ease;
+}
+
+#faith .faith-content h2:hover {
+    color: var(--gold);
+}
+
+#faith .faith-values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 40px;
+}
+
+#faith .faith-values div {
+    padding: 20px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.02);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
+}
+
+#faith .faith-values div:hover {
+    transform: translateY(-5px);
+    border-color: rgba(214, 179, 106, 0.4);
+    color: var(--gold);
+}
+
+@media (max-width: 768px) {
+    #faith .faith-values {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+/* =========================================
+   CONTACT — PREMIUM POLISH
+========================================= */
+
+#contact {
+    position: relative;
+    overflow: hidden;
+}
+
+#contact .contact-content {
+    position: relative;
+}
+
+#contact a {
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+#contact a:hover {
+    color: var(--gold);
+    transform: translateY(-2px);
+}
+
+#contact .contact-card {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease;
+}
+
+#contact .contact-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(214, 179, 106, 0.4);
+}
+
+@media (max-width: 768px) {
+    #contact {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+}
+/* =========================================
+   FOOTER — FINAL POLISH
+========================================= */
+
+footer {
+    position: relative;
+    padding: 50px 8%;
+    border-top: 1px solid var(--border);
+    background: #050505;
+    overflow: hidden;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 8%;
+    width: 80px;
+    height: 1px;
+    background: var(--gold);
+}
+
+footer p {
+    color: var(--muted);
+    font-size: 0.78rem;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+footer p:hover {
+    color: var(--text);
+}
+
+footer strong {
+    color: var(--gold);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 40px 6%;
+        text-align: center;
+    }
+
+    footer::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+/* =========================================
+   NAVIGATION — SMOOTH EXPERIENCE
+========================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+.navbar nav a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar nav a::after {
+    transition: width 0.3s ease;
+}
+
+.navbar nav a:hover {
+    color: var(--gold);
+}
+/* =========================================
+   BACK TO TOP BUTTON
+========================================= */
+
+.back-to-top {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gold);
+    color: #080808;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease;
+    z-index: 999;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    transform: translateY(-4px);
+    background: var(--gold-light);
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        right: 18px;
+        bottom: 18px;
+        width: 42px;
+        height: 42px;
+    }
+}
+/* =========================================
+   PROJECT STATUS
+========================================= */
+
+.project-status {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: var(--gold);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+
+.project-status::first-letter {
+    font-size: 0.9rem;
+}
+/* =========================================
+   PROJECT OVERVIEW
+========================================= */
+
+.project-overview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin-top: 55px;
+    border: 1px solid var(--border);
+    background: var(--border);
+}
+
+.project-overview > div {
+    padding: 25px;
+    background: var(--surface);
+    transition: background 0.3s ease;
+}
+
+.project-overview > div:hover {
+    background: var(--surface-light);
+}
+
+.project-overview span {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--gold);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+}
+
+.project-overview strong {
+    display: block;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .project-overview {
+        grid-template-columns: 1fr;
+    }
+}
+/* =========================================
+   AFTTECHWEAR — COLLECTION CARDS
+========================================= */
+
+.lookbook-item {
+    position: relative;
+}
+
+.lookbook-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid transparent;
+    pointer-events: none;
+    transition: border-color 0.4s ease;
+}
+
+.lookbook-item:hover::after {
+    border-color: rgba(214, 179, 106, 0.35);
+}
+
+.lookbook-info {
+    position: relative;
+}
+
+.lookbook-info h3 {
+    transition: color 0.3s ease;
+}
+
+.lookbook-item:hover .lookbook-info h3 {
+    color: var(--gold);
+}
+/* =========================================
+   AFTTECHWEAR — LOOKBOOK IMAGE AREA
+========================================= */
+
+.image-placeholder {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-placeholder::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        transparent 40%,
+        rgba(214, 179, 106, 0.08),
+        transparent 70%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.8s ease;
+}
+
+.lookbook-item:hover .image-placeholder::after {
+    transform: translateX(100%);
+}
+
+.image-placeholder span {
+    position: relative;
+    z-index: 2;
+    transition:
+        transform 0.5s ease,
+        letter-spacing 0.5s ease,
+        color 0.5s ease;
+}
+
+.lookbook-item:hover .image-placeholder span {
+    transform: scale(1.08);
+    letter-spacing: 12px;
+    color: rgba(214, 179, 106, 0.65);
+}
+/* =========================================
+   AFTTECHWEAR — COLLECTION DETAILS
+========================================= */
+
+.lookbook-info {
+    border-top: 1px solid rgba(214, 179, 106, 0.12);
+}
+
+.lookbook-info::after {
+    content: "EXPLORE COLLECTION";
+    display: block;
+    margin-top: 20px;
+    color: var(--gold);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.lookbook-item:hover .lookbook-info::after {
+    opacity: 0.8;
+    transform: translateY(0);
+}
+/* =========================================
+   AFTTECHWEAR — SECTION DIVIDERS
+========================================= */
+
+.project-content > section {
+    position: relative;
+}
+
+.project-content > section:not(:first-child)::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 35px;
+    opacity: 0.6;
+}
+/* =========================================
+   AFTTECHWEAR — COLLECTION NUMBER EFFECT
+========================================= */
+
+.lookbook-info small {
+    transition:
+        letter-spacing 0.4s ease,
+        opacity 0.4s ease;
+}
+
+.lookbook-item:hover .lookbook-info small {
+    letter-spacing: 5px;
+    opacity: 1;
+}
+/* =========================================
+   AFTTECHWEAR — HERO FINISH
+========================================= */
+
+.project-page .project-label {
+    position: relative;
+    display: inline-block;
+    padding-left: 18px;
+}
+
+.project-page .project-label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    transform: translateY(-50%);
+    box-shadow: 0 0 12px rgba(214, 179, 106, 0.6);
+}
+
+.project-page h1 {
+    letter-spacing: -2px;
+}
+
+.project-page .project-intro {
+    max-width: 720px;
+}
+
+.project-page .project-meta {
+    position: relative;
+}
+
+.project-page .project-meta::before {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 25px;
+    opacity: 0.6;
+}
+/* =========================================
+   AFTTECHWEAR — DESIGN PHILOSOPHY
+========================================= */
+
+.design-philosophy {
+    padding: 140px 8%;
+    display: grid;
+    grid-template-columns: 0.7fr 1.8fr;
+    gap: 80px;
+    border-top: 1px solid var(--border);
+    background:
+        radial-gradient(
+            circle at 85% 50%,
+            rgba(214, 179, 106, 0.07),
+            transparent 35%
+        );
+}
+
+.design-philosophy-label {
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding-top: 10px;
+}
+
+.design-philosophy-content {
+    max-width: 900px;
+}
+
+.design-philosophy-content h2 {
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    line-height: 1;
+    font-weight: 500;
+    margin-bottom: 35px;
+}
+
+.design-philosophy-content h2 span {
+    display: block;
+    color: var(--gold);
+}
+
+.design-philosophy-content > p {
+    max-width: 650px;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.9;
+    margin-bottom: 60px;
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+}
+
+.philosophy-grid > div {
+    padding: 30px 25px;
+    background: var(--surface);
+    transition:
+        transform 0.4s ease,
+        background 0.4s ease,
+        border-color 0.4s ease;
+}
+
+.philosophy-grid > div:hover {
+    transform: translateY(-6px);
+    background: var(--surface-light);
+}
+
+.philosophy-grid span {
+    display: block;
+    color: var(--gold);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.philosophy-grid h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.philosophy-grid > div:hover h3 {
+    color: var(--gold);
+}
+
+.philosophy-grid p {
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+
+    .design-philosophy {
+        padding: 90px 6%;
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .design-philosophy-content h2 {
+        font-size: 3rem;
+    }
+
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* =========================================
+   AFTTECHWEAR — BACK TO PROJECTS
+========================================= */
+
+.project-back {
+    padding: 80px 8%;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.project-back .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 190px;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.project-back .btn:hover {
+    transform: translateY(-4px);
+}
+
+@media (max-width: 768px) {
+    .project-back {
+        padding: 60px 6%;
+    }
+
+    .project-back .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+/* =========================================
+   AFTTECHWEAR — MANIFESTO ENHANCEMENT
+========================================= */
+
+.manifesto {
+    position: relative;
+    overflow: hidden;
+}
+
+.manifesto::after {
+    content: "AFT";
+    position: absolute;
+    right: 5%;
+    bottom: -35px;
+    font-size: clamp(8rem, 20vw, 18rem);
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(214, 179, 106, 0.025);
+    pointer-events: none;
+    user-select: none;
+}
+
+.manifesto-main {
+    position: relative;
+    z-index: 2;
+}
+
+.manifesto-lines {
+    position: relative;
+    z-index: 2;
+}
+
+.manifesto-lines p {
+    transition:
+        color 0.3s ease,
+        padding-left 0.3s ease,
+        letter-spacing 0.3s ease;
+}
+
+.manifesto-lines p:hover {
+    letter-spacing: 1px;
+}
+/* =========================================
+   AFTTECHWEAR — EDITORIAL MANIFESTO
+========================================= */
+
+.manifesto {
+    min-height: 90vh;
+    padding: 150px 8%;
+    display: grid;
+    grid-template-columns: 0.65fr 2fr;
+    align-items: center;
+    background: #050505;
+    overflow: hidden;
+}
+
+.manifesto-label {
+    color: var(--gold);
+    font-size: 0.72rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    align-self: start;
+    padding-top: 10px;
+}
+
+.manifesto-content {
+    max-width: 1000px;
+}
+
+.manifesto-main {
+    margin: 0 0 70px;
+    font-size: clamp(4rem, 8vw, 8rem);
+    line-height: 0.94;
+    letter-spacing: -4px;
+    font-weight: 600;
+}
+
+.manifesto-main span {
+    display: block;
+    color: var(--gold);
+    margin-top: 12px;
+}
+
+.manifesto-lines {
+    max-width: 650px;
+    border-top: 1px solid var(--border);
+}
+
+.manifesto-lines p {
+    padding: 20px 0;
+    margin: 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+
+    .manifesto {
+        min-height: auto;
+        padding: 110px 6% 100px;
+        display: block;
+    }
+
+    .manifesto-label {
+        margin-bottom: 75px;
+        font-size: 0.68rem;
+        letter-spacing: 3px;
+    }
+
+    .manifesto-content {
+        width: 100%;
+    }
+
+    .manifesto-main {
+        font-size: clamp(3.4rem, 15vw, 6rem);
+        line-height: 0.94;
+        letter-spacing: -2.5px;
+        margin-bottom: 65px;
+    }
+
+    .manifesto-main span {
+        margin-top: 15px;
+    }
+
+    .manifesto-lines p {
+        font-size: 0.78rem;
+        padding: 18px 0;
+    }
+}
+/* =========================================
+   AFTTECHWEAR — STORY EDITORIAL
+========================================= */
+
+.brand-story {
+    min-height: 75vh;
+    align-items: center;
+}
+
+.brand-story-content h2 {
+    font-size: clamp(3.5rem, 7vw, 7rem);
+    letter-spacing: -3px;
+}
+
+.brand-story-content h2 span {
+    color: var(--gold);
+}
+
+.brand-story-content p {
+    max-width: 650px;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+
+    .brand-story {
+        min-height: auto;
+        padding: 100px 6%;
+    }
+
+    .brand-story-content h2 {
+        font-size: clamp(3rem, 14vw, 5rem);
+        letter-spacing: -2px;
+    }
+}
+/* =========================================
+   AFTTECHWEAR — FINAL CTA
+========================================= */
+
+.project-cta {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-cta::before {
+    content: "AFT";
+    position: absolute;
+    right: 4%;
+    bottom: -45px;
+    font-size: clamp(10rem, 25vw, 22rem);
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(214, 179, 106, 0.025);
+    pointer-events: none;
+}
+
+.project-cta > * {
+    position: relative;
+    z-index: 2;
+}
+
+.project-cta h2 {
+    letter-spacing: -3px;
+}
+
+.project-cta-text {
+    max-width: 620px;
+}
+
+@media (max-width: 768px) {
+
+    .project-cta {
+        padding: 100px 6%;
+    }
+
+    .project-cta h2 {
+        letter-spacing: -2px;
+    }
+}
+/* =========================================
+   AFTTECHWEAR — REAL COLLECTION IMAGES
+========================================= */
+
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.lookbook-item:hover .image-placeholder img {
+    transform: scale(1.04);
+}
