@@ -3048,7 +3048,9 @@ html {
 }
 .contact-email {
     margin-top: 18px;
-    color: var(--muted);
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
+    color: #f5f5f5;
+    font-size: 0.95rem;
+    letter-spacing: 0.4px;
+    opacity: 1;
+    display: block;
 }
