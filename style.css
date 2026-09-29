@@ -3054,3 +3054,12 @@ html {
     opacity: 1;
     display: block;
 }
+.contact-email a {
+    color: #f5f5f5;
+    text-decoration: none;
+}
+
+.contact-email a:hover {
+    color: var(--gold);
+    text-decoration: underline;
+}
