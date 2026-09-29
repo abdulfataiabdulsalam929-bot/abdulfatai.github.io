@@ -3046,3 +3046,9 @@ html {
 .lookbook-item:hover .image-placeholder img {
     transform: scale(1.04);
 }
+.contact-email {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
